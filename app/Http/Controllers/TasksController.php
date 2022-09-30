@@ -67,7 +67,13 @@ class TasksController extends Controller
     // getでtasks/(任意のid)にアクセスされた場合の「タスク詳細表示機能」
     public function show($id)
     {
-        //
+        // idの値でタスクを検索し取得
+        $task = Task::findOrFail($id);
+        
+        // タスク詳細ページの表示
+        return view("tasks.show", [
+                "task" => $task,
+            ]);
     }
 
     /**
@@ -79,7 +85,13 @@ class TasksController extends Controller
     // getでtasks/(任意のid)/editにアクセスされた場合の「タスク編集画面表示機能」
     public function edit($id)
     {
-        //
+        // idの値でタスクを検索し取得
+        $task = Task::findOrFail($id);
+        
+        // タスク編集ページの表示
+        return view("tasks.edit", [
+                "task" => $task,
+            ]);
     }
 
     /**
@@ -92,7 +104,14 @@ class TasksController extends Controller
     // putでtasks/(任意のid)にアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
-        //
+        // idの値でタスクを検索し取得
+        $task = Task::findOrFail($id);
+        
+        // タスクを更新
+        $task->content = $request->content;
+        $task->save();
+        
+        return redirect("/");
     }
 
     /**
