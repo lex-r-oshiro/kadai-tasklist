@@ -121,9 +121,14 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     // タスク削除
-    
     public function destroy($id)
     {
-        //
+        // idの値でタスクを検索し取得
+        $task = Task::findOrFail($id);
+        // タスク削除
+        $task->delete();
+        
+        return redirect("/");
+        
     }
 }
