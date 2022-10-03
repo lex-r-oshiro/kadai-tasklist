@@ -50,8 +50,15 @@ class TasksController extends Controller
     // postでtasks/にアクセスされた場合の「タスク登録機能」
     public function store(Request $request)
     {
+        // バリデーション
+        $request->validate([
+            "status" => "required|max:10",
+            "content" => "required",
+        ]);
+        
         // タスクを作成
         $task = new Task;
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
         
@@ -107,7 +114,14 @@ class TasksController extends Controller
         // idの値でタスクを検索し取得
         $task = Task::findOrFail($id);
         
+        // バリデーション
+        $request->validate([
+            "status" => "required|max:10",
+            "content" => "required",
+        ]);
+        
         // タスクを更新
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
         
