@@ -13,6 +13,10 @@
                 {{--タスク作成ページへのリンク--}}
                 {!! link_to_route('tasks.create', '新規タスクの投稿',[], ["class" => "nav-link"]) !!}
             </ul>
+            <ul class="navbar-nav">
+                {{--タスク作成ページへのリンク--}}
+                {!! link_to_route('tasks.index', 'タスク一覧',[], ["class" => "nav-link"]) !!}
+            </ul>
             
         </div>
     </nav>
