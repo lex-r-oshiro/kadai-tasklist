@@ -10,14 +10,24 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                {{--タスク作成ページへのリンク--}}
-                {!! link_to_route('tasks.create', '新規タスクの投稿',[], ["class" => "nav-link"]) !!}
+                
+                @if (Auth::check())
+                    {{-- タスク登録 --}}
+                    <li class="nav-item">{!! link_to_route("tasks.create", "作成", [], ["class" => "nav-link"]) !!}</li>
+                    {{-- タスク一覧 --}}
+                    <li class="nav-item">{!! link_to_route("tasks.index", "一覧", [], ["class" => "nav-link"]) !!}</li>
+                    
+                    {{-- ログアウト --}}
+                    <li class="nav-item">{!! link_to_route("logout.get", "Logout", [], ["class" => "nav-link"]) !!}</li>
+                    
+                @else
+                    {{-- ユーザ登録ページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route("signup.get", "Sign up", [], ["class" => "nav-link"]) !!}</li>
+                    {{-- ログインページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route("login", "Log in", [], ["class" => "nav-link"]) !!}</li>
+                @endif
+                
             </ul>
-            <ul class="navbar-nav">
-                {{--タスク作成ページへのリンク--}}
-                {!! link_to_route('tasks.index', 'タスク一覧',[], ["class" => "nav-link"]) !!}
-            </ul>
-            
         </div>
     </nav>
 </header>

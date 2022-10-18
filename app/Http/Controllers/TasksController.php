@@ -22,7 +22,7 @@ class TasksController extends Controller
         // タスク一覧ビューで表示
         return view("tasks.index", [
                 "tasks" => $tasks,
-            ]);
+        ]);
     }
 
     /**
