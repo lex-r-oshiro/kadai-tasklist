@@ -21,7 +21,7 @@ class TasksController extends Controller
             // 認証済みユーザを取得
             $user = \Auth::user();
             // タスク一覧を取得
-            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(4);
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
             $data = [
                 "user" => $user,
                 "tasks" => $tasks,
