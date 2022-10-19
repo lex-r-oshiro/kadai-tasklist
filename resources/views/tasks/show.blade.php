@@ -2,13 +2,14 @@
 
 @section("content")
 
-    <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
+    <!--<h1>id = {{ $task->id }} のタスク詳細ページ</h1>-->
+    <h1>タスク詳細ページ</h1>
     
     <table class="table table-borded">
-        <tr>
-            <th>id</th>
-            <td>{{ $task->id }}</td>
-        </tr>
+        <!--<tr>-->
+        <!--    <th>id</th>-->
+        <!--    <td>{{ $task->id }}</td>-->
+        <!--</tr>-->
         
         <tr>
             <th>status</th>
@@ -22,7 +23,7 @@
     </table>
     
     {{--タスク編集ページへのリンク--}}
-    {!! link_to_route("tasks.edit", "このタスクを編集", ["task" => $task->id], ["class" => "btn btn-light"]) !!}
+    {!! link_to_route("tasks.edit", "タスクを編集", ["task" => $task->id], ["class" => "btn btn-light"]) !!}
     
     {{--タスク削除フォーム--}}
     {!! Form::model($task, ["route" => ["tasks.destroy", $task->id], "method" => "delete"]) !!}

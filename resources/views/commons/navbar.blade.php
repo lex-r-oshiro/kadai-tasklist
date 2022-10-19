@@ -14,9 +14,6 @@
                 @if (Auth::check())
                     {{-- タスク登録 --}}
                     <li class="nav-item">{!! link_to_route("tasks.create", "作成", [], ["class" => "nav-link"]) !!}</li>
-                    {{-- タスク一覧 --}}
-                    <li class="nav-item">{!! link_to_route("tasks.index", "一覧", [], ["class" => "nav-link"]) !!}</li>
-                    
                     {{-- ログアウト --}}
                     <li class="nav-item">{!! link_to_route("logout.get", "Logout", [], ["class" => "nav-link"]) !!}</li>
                     

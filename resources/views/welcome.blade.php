@@ -9,6 +9,9 @@
             </div>
         </div>
         
+        <div>
+            @include("tasks.index")
+        </div>
         
     @else
         <div class="center jumbotron">
