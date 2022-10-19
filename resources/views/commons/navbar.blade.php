@@ -12,8 +12,13 @@
             <ul class="navbar-nav">
                 
                 @if (Auth::check())
+                    {{-- アイコンを設定したい --}}
+                    <!--<a class="navbar-brand" href="{!! route("tasks.create") !!}">-->
+                    <!--    <i class="fas fa-plus-circle"></i>-->
+                    <!--</a>-->
+                    
                     {{-- タスク登録 --}}
-                    <li class="nav-item">{!! link_to_route("tasks.create", "作成", [], ["class" => "nav-link"]) !!}</li>
+                    <li class="nav-item">{!! link_to_route("tasks.create", "タスク作成", [], ["class" => "nav-link"])!!}</li>
                     {{-- ログアウト --}}
                     <li class="nav-item">{!! link_to_route("logout.get", "Logout", [], ["class" => "nav-link"]) !!}</li>
                     
